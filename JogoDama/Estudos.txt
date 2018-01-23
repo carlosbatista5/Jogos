@@ -1,0 +1,11 @@
+bootstrap -- grid
+https://edsonjunior.com/compreendendo-grid-do-bootstrap/
+
+.col-smxx
+abaixo de 768px a coluna se comporta como linha
+
+ddp = densidade de pixels
+exemplo:
+
+Densidade de pixels = 294 pixels por polegada
+Resolucao da tela = 1280 x 720 pixels
