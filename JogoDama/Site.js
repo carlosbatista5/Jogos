@@ -105,14 +105,8 @@ function VerificarJogadaDama(evento, casaDestino, nomePedra) {
     var colunaAtual = pedra.attr('colunaatual');
     var colunaDestino;
     var direcaoMvmtoVertical;
-    var colunaCasaPulada;
-    var linhaCasaPulada;
-    var nomeCasaPulada;
-    var casaPulada;
     var linhaDestinoOK;
     var qtdeLinhasAvancadas;
-    var imagemPedraPulada;
-    var pedraRemovida = Boolean(false);
 
 
     //verifica se é casa branca
@@ -171,41 +165,6 @@ function VerificarJogadaDama(evento, casaDestino, nomePedra) {
                 return true;
             }
 
-
-            //nomeCasaPulada = "CasaColuna_" + colunaCasaPulada + "_Linha_" + linhaCasaPulada;
-
-            ////console.log('nomeCasaPulada = ' + nomeCasaPulada);
-
-            //casaPulada = $('#' + nomeCasaPulada);
-
-            ////verica se existe pedra na casa pulada
-            //if (casaPulada.find('img:first').length > 0) {
-
-            //    imagemPedraPulada = casaPulada.find('img:first')["0"].currentSrc;
-
-
-            //    //verifica se a pedra comida é da mesma cor ... se for não deixa
-            //    if (imagemPedraPulada === pedra["0"].currentSrc) {
-            //        return false;
-            //    }
-            //    else {
-
-            //        RemoverPedra(casaPulada.find('img:first')["0"]);
-            //        AnimarCasa(casaDestino, true);
-
-            //        pedraRemovida = Boolean(true);
-            //    }
-
-            //}
-            //else {
-
-            //    return false;
-            //}
-
-
-
-            //atualizaa propriedade da pedra com a nova linha 
-
             return true;
         }
         else {
@@ -214,7 +173,6 @@ function VerificarJogadaDama(evento, casaDestino, nomePedra) {
             return false;
         }
     }
-
 
     return true;
 }
@@ -462,14 +420,8 @@ function VerificarJogada(evento, casaDestino, nomePedra) {
     var colunaAtual = pedra.attr('colunaatual');
     var colunaDestino;
     var direcaoMvmtoVertical;
-    var colunaCasaPulada;
-    var linhaCasaPulada;
-    var nomeCasaPulada;
-    var casaPulada;
     var linhaDestinoOK;
     var qtdeLinhasAvancadas;
-    var imagemPedraPulada;
-    var pedraRemovida = Boolean(false);
 
     //verifica se é casa branca
     if (casaDestino.style.backgroundColor == 'white') {
@@ -485,19 +437,12 @@ function VerificarJogada(evento, casaDestino, nomePedra) {
     linhaDestino = casaDestinoIdSplit[3];
     colunaDestino = casaDestinoIdSplit[1];
 
-    //pedraDaVez = nomePedra;
 
-
-    //*************************************************************
-    //*************************************************************
-
-
-    
-
+    //verifica se a regra está ligada
     if ($('#cbDesligarRegras').is(':checked')) {
 
         if (localStorage.JogadorAtual != nomePedraSplit[0]) {
-            AbrirPopup();
+            AbrirPopup(linhaAtual, colunaAtual);
             return false;
         }
 
@@ -544,67 +489,6 @@ function VerificarJogada(evento, casaDestino, nomePedra) {
         }
 
 
-        //if (!linhaDestinoOK) {
-        //    if (!Boolean(VerificarPedrasVizinhas(linhaAtual, colunaAtual, nomePedraSplit[0]))) {
-        //        return false;
-        //    }
-        //}
-
-        //pulou duas casas 
-        //if (qtdeLinhasAvancadas == 2 || qtdeLinhasAvancadas == -2) {
-
-
-        //verifica se é o jogador 1
-        //if (nomePedraSplit[0] == 'J1') {
-        //    //verifica para que lado a pedra foi movimentada
-        //    if (direcaoMvmtoVertical == 'Direita') {
-
-        //        colunaCasaPulada = parseInt(colunaDestino) + 1;
-
-        //        if (qtdeLinhasAvancadas == 2) {
-        //            linhaCasaPulada = parseInt(linhaDestino) - 1;
-        //        } else {
-        //            linhaCasaPulada = parseInt(linhaDestino) + 1;
-        //        }
-        //    }
-        //    else {
-
-        //        colunaCasaPulada = parseInt(colunaDestino) - 1;
-
-        //        if (qtdeLinhasAvancadas == 2) {
-        //            linhaCasaPulada = parseInt(linhaDestino) - 1;
-        //        } else {
-        //            linhaCasaPulada = parseInt(linhaDestino) + 1;
-        //        }
-        //    }
-        //}
-        //else {
-
-        //    //verifica para que lado a pedra foi movimentada
-        //    if (direcaoMvmtoVertical == 'Direita') {
-
-        //        colunaCasaPulada = parseInt(colunaDestino) - 1;
-
-        //        if (qtdeLinhasAvancadas == 2) {
-        //            linhaCasaPulada = parseInt(linhaDestino) + 1;
-        //        }
-        //        else {
-        //            linhaCasaPulada = parseInt(linhaDestino) - 1;
-        //        }
-        //    }
-        //    else {
-
-        //        colunaCasaPulada = parseInt(colunaDestino) + 1;
-
-        //        if (qtdeLinhasAvancadas == 2) {
-        //            linhaCasaPulada = parseInt(linhaDestino) + 1;
-        //        } else {
-        //            linhaCasaPulada = parseInt(linhaDestino) - 1;
-        //        }
-        //    }
-        //}
-
-
         if (!VerificarCasaDestinoValida(linhaAtual, colunaAtual, linhaDestino, colunaDestino, nomePedraSplit[0], 'false')) {
             return false;
         } else {
@@ -634,62 +518,6 @@ function VerificarJogada(evento, casaDestino, nomePedra) {
                 }
             }
 
-        }
-
-
-
-        //nomeCasaPulada = "CasaColuna_" + colunaCasaPulada + "_Linha_" + linhaCasaPulada;
-
-
-        //casaPulada = $('#' + nomeCasaPulada);
-
-        ////verica se existe pedra na casa pulada
-        //if (casaPulada.find('img:first').length > 0) {
-
-        //    imagemPedraPulada = casaPulada.find('img:first')["0"].currentSrc;
-
-        //    //verifica se a pedra comida é da mesma cor ... se for não deixa
-        //    if (imagemPedraPulada === pedra["0"].currentSrc) {
-        //        return false;
-        //    }
-        //    else {
-
-        //        //RemoverPedra(casaPulada.find('img:first')["0"]);
-        //        MarcarPedra(colunaCasaPulada, linhaCasaPulada, false, nomePedraSplit[0], true);
-        //        AnimarCasa(casaDestino, true);
-
-        //        AnimarCasaPorColunaLinha(colunaCasaPulada, linhaCasaPulada, false);
-
-        //        //  pedraRemovida = Boolean(true);
-
-        //if (ObrigarJogadaPorLinhaColuna(nomePedraSplit[0], linhaDestino, colunaDestino)) {
-
-        //    obrigaMesmaPedra = Boolean(true);
-        //    pedraDaVez = nomePedra;
-        //}
-        //else {
-        //    RemoverPedrasMarcadas(nomePedraSplit[0]);
-        //    obrigaMesmaPedra = Boolean(false);
-        //    pedraDaVez = '';
-        //}
-
-
-        //    }
-        //}
-        //else {
-
-        //    return false;
-        //}
-
-        //}
-        //else
-        //    if (qtdeLinhasAvancadas > 2) {
-        //        return false;
-        //    }
-
-
-        if (colunaAtual == colunaDestino) {
-            return false;
         }
 
         if (!obrigaMesmaPedra) {
@@ -1284,14 +1112,28 @@ function VerificarPedrasVizinhas(linhaAtualPedra, colunaAtualPedra, jogador) {
     return false;
 }
 
-function AbrirPopup() {
+function AbrirPopup(linhaAtual, colunaAtual) {
 
-    $("#lnkAbrirPopup").trigger("click");
-    // $("div.wrap").slideUp(300).delay(800).fadeIn(400);
+    let casaAtual = $("#CasaColuna_" + colunaAtual + "_Linha_" + linhaAtual);
 
-    $('#lnkAbrirPopup').delay(1500).queue(function () {
-        $(this).trigger('click');
-    });
+
+    //["0"].offsetLeft
+    let top = casaAtual["0"].offsetTop;
+    let left = casaAtual["0"].offsetLeft;
+
+
+    top = 50;
+
+    //left = 700;
+     $(".wrap").css("bottom", top + "%");
+     $(".wrap").css("left", left + "px");
+
+  //  $(".wrap").css( "transform", "translateY 700px" );
+
+     $('.wrap').css('transform', 'rotate(140deg)');
+     //$('.wrap').css('transform', 'rotate(360deg)');
+
+    $('#lnkAbrirPopup').trigger("click");
 
 }
 

@@ -102,26 +102,25 @@
             });
 
 
-            $('#btnGirar').click(function () {
+            //$('#btnGirar').click(function () {
 
 
-                var endDegValue;
-                var leftValue;
-                if (localStorage.J1Embaixo == 'true') {
-                    endDegValue = 180;
-                    leftValue = -180;
-                    localStorage.J1Embaixo = Boolean(false);
-                }
-                else {
-                    endDegValue = 0;
-                    leftValue = 100;
-                    localStorage.J1Embaixo = Boolean(true);
-                }
+            //    var endDegValue;
+            //    var leftValue;
+            //    if (localStorage.J1Embaixo == 'true') {
+            //        endDegValue = 180;
+            //        leftValue = -180;
+            //        localStorage.J1Embaixo = Boolean(false);
+            //    }
+            //    else {
+            //        endDegValue = 0;
+            //        leftValue = 100;
+            //        localStorage.J1Embaixo = Boolean(true);
+            //    }
 
-                $('#dvTabuleiro').css({ position: 'relative', left: leftValue }).rotate({ endDeg: endDegValue, persist: true, duration: 0.1, animate: { left: leftValue }, easing: 'ease-out' });
-                //$('#dvTabuleiro').css({ display: inline - block, left: 0 }).rotate({ endDeg: endDegValue, persist: true, duration: 0.1, animate: { left: leftValue }, easing: 'ease-out' });
-
-            }).click();
+            //    $('#dvTabuleiro').css({ position: 'relative', left: leftValue }).rotate({ endDeg: endDegValue, persist: true, duration: 0.1, animate: { left: leftValue }, easing: 'ease-out' });
+          
+            //}).click();
 
 
             /* $('#btn3').toggle(function() {
@@ -207,20 +206,20 @@
 
                     </div>
                 </div>
+                
+            </div>
+            <div class="col-md-10">
+                <div id="dvTabuleiro">
+                </div>
                 <div class="row">
                     <div>
                         <div class='wrap'>
                             <div class='content'>
-                                <h2>Atenção!</h2>
-                                <p>Quem jogo agora é o outro jogador</p>
+                                <img src="Imagens\FaceNot.jpeg" style="width:30%" /><h2>Não é sua vez</h2>
                             </div>
                             <a id="lnkAbrirPopup" class='button glyphicon glyphicon-plus' href='#' style="visibility:hidden"></a>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div id="dvTabuleiro">
                 </div>
             </div>
         </div>
